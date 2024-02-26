@@ -1,19 +1,11 @@
 from datetime import datetime
-# from typing import TypeVar
 from typing import Union
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import CharityProject, Donation
 
-'''from app.core.db import Base
-from app.crud.base import CRUDBase
 
-ModelType = TypeVar('ModelType', bound=Base)
-CRUDType = TypeVar('CRUDType', bound=CRUDBase)'''
-
-
-# def close_project(obj: ModelType) -> None:
 def close_project(obj: Union[CharityProject, Donation]) -> None:
     """Закрытие сбора/доната, добавление даты закрытия."""
 
@@ -22,7 +14,6 @@ def close_project(obj: Union[CharityProject, Donation]) -> None:
 
 
 async def donate(
-    # from_invest: ModelType, to_invest: CRUDType, session: AsyncSession
     from_invest: Union[CharityProject, Donation],
     to_invest: Union[CharityProject, Donation],
     session: AsyncSession

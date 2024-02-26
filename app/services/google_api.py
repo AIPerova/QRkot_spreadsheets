@@ -48,7 +48,7 @@ async def set_user_permissions(
         service.permissions.create(
             fileId=spreadsheetid,
             json=permissions_body,
-            fields="id",
+            fields='id',
         )
     )
 
@@ -70,7 +70,7 @@ async def spreadsheet_update_value(
         days = time.days
         new_row = [
             project.name,
-            '{0} days, {1}'.format(days, time),
+            f'{days} days, {time}',
             project.description,
         ]
         table_values.append(new_row)
